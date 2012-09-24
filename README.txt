@@ -1,0 +1,1 @@
+This Fact is meant to allow guest VMs to know what version of ESX the hypervisor is running
