@@ -1,3 +1,24 @@
 This Fact is meant to allow guest VMs to know what version of ESX the hypervisor is running.
 This made possible from the information found here:
 http://virtwo.blogspot.com/2010/10/which-esx-version-am-i-running-on.html
+
+I have tested this with the following versions
+
+ESXi 3.5   207095 (E66C0)
+ESXi 4.0   171294 (EA550)
+ESXi 4.0u1 208167 (EA550)
+ESXi 4.0u2 261974 (EA550)
+ESXi 4.0u3 398348 (EA550)
+ESXi 4.0u4 504850 (EA550)
+ESXi 4.1   260247 (EA2E0)
+ESXi 4.1u2 800380 (EA2E0)
+ESXi 5.0   469512 (E72C0)
+ESXi 5.0u1 623860 (E72C0)
+ESXi 5.1   799733 (EA0C0)
+
+If you have access to something other than what's listed, if you wouldn't mind sending me a note containing:
+
+- The version/update of VMware
+- The build number
+- the output of 'dmidecode -t bios' from a linux vm inside that version
+I'll happily update this with that information so it can be more useful to all
