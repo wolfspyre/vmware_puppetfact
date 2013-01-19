@@ -1,5 +1,5 @@
 # I have verified that the following versions match the following strings in dmidecode
-# ESXi 3.5   207095 ( Address: 0xE66C0 Release Date: 03/19/2009) 
+# ESXi 3.5   207095 ( Address: 0xE66C0 Release Date: 03/19/2009)
 # ESXi 4.0   171294 ( Address: 0xEA550 Release Date: 03/26/2009)
 # ESXi 4.0u1 208167 ( Address: 0xEA550 Release Date: 09/22/2009)
 # ESXi 4.0u2 261974 ( Address: 0xEA550 Release Date: 09/22/2009)
@@ -16,38 +16,41 @@ update  = "unknown"
 if File.exists?("/usr/sbin/dmidecode")
   foobar = %x{/usr/sbin/dmidecode -t bios}
   if not foobar.nil?
-    mainver  = "unknown"
-    address  = foobar.match(/Address: 0x(.*)/i)[0]
-    biosdate = foobar.match(/Release Date: (.*)/i)[0]
-    case
-      when address.match(/E8480/)
-        mainver = "2.5"
-      when address.match(/E7C70/)
-        mainver = "3.0"
-      when address.match(/E7910/)
-        mainver = "3.5"
-      when address.match(/E66C0/)
-        mainver = "3.5"
-      when address.match(/EA6C0/)
-        mainver = "4.0"
-      when address.match(/EA550/)
-        mainver = "4.0"
-      when address.match(/EA2E0/)
-        mainver = "4.1"
-        case
-          when biosdate.match(/04\/15\/2011/)
-            update = "u2"
-        end
-      when address.match(/E72C0/)
-        mainver = "5.0"
-        case
-          when biosdate.match(/09\/21\/2011/)
-            update = "u1"
-        end
-      when address.match(/EA0C0/)
-        mainver = "5.1"
-     end
-     result = mainver
+    #sometimes Dmidecode will barf:
+    if not foobar.match(/No SMBIOS nor DMI entry point found, sorry./)
+      mainver  = "unknown"
+      address  = foobar.match(/Address: 0x(.*)/i)[0]
+      biosdate = foobar.match(/Release Date: (.*)/i)[0]
+      case
+        when address.match(/E8480/)
+          mainver = "2.5"
+        when address.match(/E7C70/)
+          mainver = "3.0"
+        when address.match(/E7910/)
+          mainver = "3.5"
+        when address.match(/E66C0/)
+          mainver = "3.5"
+        when address.match(/EA6C0/)
+          mainver = "4.0"
+        when address.match(/EA550/)
+          mainver = "4.0"
+        when address.match(/EA2E0/)
+          mainver = "4.1"
+          case
+            when biosdate.match(/04\/15\/2011/)
+              update = "u2"
+          end
+        when address.match(/E72C0/)
+          mainver = "5.0"
+          case
+            when biosdate.match(/09\/21\/2011/)
+              update = "u1"
+          end
+        when address.match(/EA0C0/)
+          mainver = "5.1"
+       end
+       result = mainver
+    end
   end
 end
 Facter.add("vmware") do
