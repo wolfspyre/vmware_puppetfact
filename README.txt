@@ -25,3 +25,9 @@ I'll happily update this with that information so it can be more useful to all
 
 
 NOTE: The bios is only read at power-on. A reboot will *NOT* update the bios information. If you notice an incorrect bios string, try powering off the VM completely and powering it back on. This will reload the bios, and you should have the proper address and release date.
+
+
+Thanks to:
+Adrien Thiebo
+Stefan Heijmans
+Eric Shamow
