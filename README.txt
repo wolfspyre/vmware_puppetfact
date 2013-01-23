@@ -22,3 +22,6 @@ If you have access to something other than what's listed, if you wouldn't mind s
 - The build number
 - the output of 'dmidecode -t bios' from a linux vm inside that version
 I'll happily update this with that information so it can be more useful to all
+
+
+NOTE: The bios is only read at power-on. A reboot will *NOT* update the bios information. If you notice an incorrect bios string, try powering off the VM completely and powering it back on. This will reload the bios, and you should have the proper address and release date.
