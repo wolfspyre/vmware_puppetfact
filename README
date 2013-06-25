@@ -1,3 +1,6 @@
+Version 0.1.0:
+  - Major refactor of code to reside in module layout, and to provide unit tests.
+
 This Fact is meant to allow guest VMs to know what version of ESX the hypervisor is running.
 This made possible from the information found here:
 http://virtwo.blogspot.com/2010/10/which-esx-version-am-i-running-on.html
@@ -31,3 +34,4 @@ Thanks to:
 Adrien Thiebo
 Stefan Heijmans
 Eric Shamow
+
