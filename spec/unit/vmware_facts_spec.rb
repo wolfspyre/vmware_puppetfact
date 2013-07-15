@@ -4,15 +4,23 @@ require 'facter'
 describe 'vmware fact' do
   let (:facts) do {:macaddress => 'aa:bb:66:55:dd:22'}  end
   context 'on a physical host' do
-    it 'should set the vmware fact to non-vmware' do
+    it 'should set the vmware fact to nil' do
       Facter.fact(:virtual).stubs(:value).returns(:physical)
-      Facter.fact(:vmware).value.should == 'non-vmware'
+      Facter.fact(:vmware).value.should == nil
+    end
+    it 'should set the vmware_patchlevel fact to nil' do
+      Facter.fact(:virtual).stubs(:value).returns(:virtual)
+      Facter.fact(:vmware_patchlevel).value.should == nil
     end
   end
   context 'on a non-vmware virtual host' do
-    it 'should set the vmware fact to non-vmware' do
+    it 'should set the vmware fact to nil' do
       Facter.fact(:virtual).stubs(:value).returns(:virtual)
-      Facter.fact(:vmware).value.should == 'non-vmware'
+      Facter.fact(:vmware).value.should == nil
+    end
+    it 'should set the vmware_patchlevel fact to nil' do
+      Facter.fact(:virtual).stubs(:value).returns(:virtual)
+      Facter.fact(:vmware_patchlevel).value.should == nil
     end
   end
 

@@ -14,13 +14,15 @@ require 'facter'
 # ESXi 5.1   799733 ( Address: 0xEA0C0 Release Date: 06/22/2012)
 #
 Facter.add(:vmware) do
+  #default for non-vmware nodes
   setcode do
-    'non-vmware'
+    nil
   end
 end
 
 Facter.add(:vmware) do
   confine :virtual => :vmware
+  #VMWare, but not linux
   setcode do
     'vmware-unknown'
   end
@@ -28,13 +30,14 @@ end
 Facter.add(:vmware) do
   confine :virtual => :vmware
   confine :kernel => :linux
+  #vmware and linux. whee!
   setcode do
     hasdmi = Facter::Util::Resolution.exec('which dmidecode')
     if hasdmi.nil?
       #no dmidecode
       result='vmware-linux'
     else
-      foobar = Facter::Util::Resolution.exec('/usr/sbin/dmidecode -t bios')
+      foobar = Facter::Util::Resolution.exec("#{hasdmi} -t bios")
       if foobar.nil?
         result='vmware-linux'
       else
@@ -96,7 +99,7 @@ Facter.add(:vmware_patchlevel) do
       #no dmidecode
       result='vmware-linux'
     else
-      foobar = Facter::Util::Resolution.exec('/usr/sbin/dmidecode -t bios')
+      foobar = Facter::Util::Resolution.exec("#{hasdmi} -t bios")
       if foobar.nil?
         result='vmware-linux'
       else
@@ -134,6 +137,6 @@ Facter.add(:vmware_patchlevel) do
 end
 Facter.add(:vmware_patchlevel) do
   setcode do
-    'unknown'
+    nil
   end
 end

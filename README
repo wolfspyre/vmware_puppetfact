@@ -1,3 +1,7 @@
+Version 0.2.0:
+  - return nil on non-vmware hosts for the vmware and vmware_patchlevel facts.
+  - dmidecode path is no longer hardcoded, but generated from the result of 'which dmidecode'
+
 Version 0.1.0:
   - Major refactor of code to reside in module layout, and to provide unit tests.
 
@@ -34,4 +38,5 @@ Thanks to:
 Adrien Thiebo
 Stefan Heijmans
 Eric Shamow
+Mike Arnold
 
