@@ -23,6 +23,9 @@ ESXi 5.0   469512 (E72C0)
 ESXi 5.0u1 623860 (E72C0)
 ESXi 5.1   799733 (EA0C0)
 
+ESXi 5.0u2 914586 (E72C0) support was added by https://github.com/kaistian/vmware_puppetfact
+
+
 If you have access to something other than what's listed, if you wouldn't mind sending me a note containing:
 
 - The version/update of VMware

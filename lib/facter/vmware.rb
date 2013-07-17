@@ -11,6 +11,7 @@ require 'facter'
 # ESXi 4.1u2 800380 ( Address: 0xEA2E0 Release Date: 04/15/2011)
 # ESXi 5.0   469512 ( Address: 0xE72C0 Release Date: 01/07/2011)
 # ESXi 5.0u1 623860 ( Address: 0xE72C0 Release Date: 09/21/2011)
+# ESXi 5.0u2 914586 ( Address: 0xE72C0 Release Date: 07/09/2012)
 # ESXi 5.1   799733 ( Address: 0xEA0C0 Release Date: 06/22/2012)
 #
 Facter.add(:vmware) do
@@ -119,7 +120,7 @@ Facter.add(:vmware_patchlevel) do
             biosdate = 'no_data'
           end
           case
-            #we only have means of detecting 4.1u2 and 5.0u1 right now.
+            #we only have means of detecting 4.1u2, 5.0u1, 5.0u2 right now.
           when address.match(/EA2E0/)
             if biosdate.include? '04/15/2011'
               update = 'u2'
@@ -127,6 +128,9 @@ Facter.add(:vmware_patchlevel) do
           when address.match(/E72C0/)
             if biosdate.include? '09/21/2011'
               update = 'u1'
+            end
+            if biosdate.include? '07/09/2012'
+              update = 'u2'
             end
           end
         end
