@@ -282,7 +282,18 @@ describe 'vmware fact' do
            Facter.fact(:vmware_patchlevel).value.should == 'unknown'
           end
         end
-
+        
+        context 'when running on esxi 5.1.0 - 1065491' do
+          before do
+            Facter::Util::Resolution.stubs(:exec).with('/usr/sbin/dmidecode -t bios').returns("Handle 0x0000, DMI type 0, 24 bytes\nBIOS Information\nVendor: Phoenix Technologies LTD\nVersion: 6.00\nRelease Date: 06/22/2012\nAddress: 0xEA0C0\nRuntime Size: 89920 bytes\nROM Size: 64 kB\nCharacteristics:\nISA is supported\nPCI is supported\nPC Card (PCMCIA) is supported\nPNP is supported\nAPM is supported\nBIOS is upgradeable\nBIOS shadowing is allowed\nESCD support is available\nBoot from CD is supported\nSelectable boot is supported\nEDD is supported\nPrint screen service is supported (int 5h)\n8042 keyboard services are supported (int 9h)\nSerial services are supported (int 14h)\nPrinter services are supported (int 17h)\nCGA/mono video services are supported (int 10h)\nACPI is supported\nSmart battery is supported\nBIOS boot specification is supported\nFunction key-initiated network boot is supported\nTargeted content distribution is supported\nBIOS Revision: 4.6\nFirmware Revision: 0.0\n")
+          end
+          it "should set the vmware fact to '5.1'" do
+            Facter.fact(:vmware).value.should == '5.1'
+          end
+          it "should set the vmware_patchlevel fact to 'unknown'" do
+           Facter.fact(:vmware_patchlevel).value.should == 'unknown'
+          end
+        end
       end
     end
   end

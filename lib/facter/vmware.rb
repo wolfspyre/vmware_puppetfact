@@ -1,18 +1,19 @@
 require 'facter'
 
 # I have verified that the following versions match the following strings in dmidecode
-# ESXi 3.5   207095 ( Address: 0xE66C0 Release Date: 03/19/2009)
-# ESXi 4.0   171294 ( Address: 0xEA550 Release Date: 03/26/2009)
-# ESXi 4.0u1 208167 ( Address: 0xEA550 Release Date: 09/22/2009)
-# ESXi 4.0u2 261974 ( Address: 0xEA550 Release Date: 09/22/2009)
-# ESXi 4.0u3 398348 ( Address: 0xEA550 Release Date: 09/22/2009)
-# ESXi 4.0u4 504850 ( Address: 0xEA550 Release Date: 09/22/2009)
-# ESXi 4.1   260247 ( Address: 0xEA2E0 Release Date: 10/13/2009)
-# ESXi 4.1u2 800380 ( Address: 0xEA2E0 Release Date: 04/15/2011)
-# ESXi 5.0   469512 ( Address: 0xE72C0 Release Date: 01/07/2011)
-# ESXi 5.0u1 623860 ( Address: 0xE72C0 Release Date: 09/21/2011)
-# ESXi 5.0u2 914586 ( Address: 0xE72C0 Release Date: 07/09/2012)
-# ESXi 5.1   799733 ( Address: 0xEA0C0 Release Date: 06/22/2012)
+# ESXi 3.5    207095 ( Address: 0xE66C0 Release Date: 03/19/2009)
+# ESXi 4.0    171294 ( Address: 0xEA550 Release Date: 03/26/2009)
+# ESXi 4.0u1  208167 ( Address: 0xEA550 Release Date: 09/22/2009)
+# ESXi 4.0u2  261974 ( Address: 0xEA550 Release Date: 09/22/2009)
+# ESXi 4.0u3  398348 ( Address: 0xEA550 Release Date: 09/22/2009)
+# ESXi 4.0u4  504850 ( Address: 0xEA550 Release Date: 09/22/2009)
+# ESXi 4.1    260247 ( Address: 0xEA2E0 Release Date: 10/13/2009)
+# ESXi 4.1u2  800380 ( Address: 0xEA2E0 Release Date: 04/15/2011)
+# ESXi 5.0    469512 ( Address: 0xE72C0 Release Date: 01/07/2011)
+# ESXi 5.0u1  623860 ( Address: 0xE72C0 Release Date: 09/21/2011)
+# ESXi 5.0u2  914586 ( Address: 0xE72C0 Release Date: 07/09/2012)
+# ESXi 5.1    799733 ( Address: 0xEA0C0 Release Date: 06/22/2012)
+# ESXi 5.1.0 1065491 ( Address: 0xEA0C0 Release Date: 06/22/2012)
 #
 Facter.add(:vmware) do
   #default for non-vmware nodes
