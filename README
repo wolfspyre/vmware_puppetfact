@@ -1,3 +1,7 @@
+Version 0.2.1:
+  - Forge release
+  - Attribution
+  - Preparation for integration into vmwaretools module
 Version 0.2.0:
   - return nil on non-vmware hosts for the vmware and vmware_patchlevel facts.
   - dmidecode path is no longer hardcoded, but generated from the result of 'which dmidecode'
@@ -42,4 +46,4 @@ Adrien Thiebo
 Stefan Heijmans
 Eric Shamow
 Mike Arnold
-
+Kai Stian Olstad
