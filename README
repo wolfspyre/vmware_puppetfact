@@ -1,3 +1,5 @@
+Version 0.2.2:
+  - Addition of 5.5.0 build 1369380 test and logic.
 Version 0.2.1.1:
   - Addition of 5.1.0 build 1065491 test
 Version 0.2.1:
@@ -29,6 +31,7 @@ ESXi 5.0    469512 (E72C0)
 ESXi 5.0u1  623860 (E72C0)
 ESXi 5.1    799733 (EA0C0)
 ESXi 5.1.0 1065491 (EA0C0)
+ESXi 5.5.0 1369380 (EA050)
 
 ESXi 5.0u2 914586 (E72C0) support was added by https://github.com/kaistian/vmware_puppetfact
 
@@ -51,3 +54,4 @@ Eric Shamow
 Mike Arnold
 Kai Stian Olstad
 Eric Sakowski
+Søren Andreas Bodekær Kröger

@@ -14,6 +14,7 @@ require 'facter'
 # ESXi 5.0u2  914586 ( Address: 0xE72C0 Release Date: 07/09/2012)
 # ESXi 5.1    799733 ( Address: 0xEA0C0 Release Date: 06/22/2012)
 # ESXi 5.1.0 1065491 ( Address: 0xEA0C0 Release Date: 06/22/2012)
+# ESXi 5.5.0 1369380 ( Address: 0xEA050 Release Date: 07/30/2013)
 #
 Facter.add(:vmware) do
   #default for non-vmware nodes
@@ -77,6 +78,8 @@ Facter.add(:vmware) do
             mainver = '5.0'
           when address.match(/EA0C0/)
             mainver = '5.1'
+          when address.match(/EA050/)
+            mainver = '5.5'
           end
           result=mainver
         end

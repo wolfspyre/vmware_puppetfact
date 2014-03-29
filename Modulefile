@@ -1,5 +1,5 @@
 name    'wolfspyre-vmware_puppetfact'
-version '0.2.1.1'
+version '0.2.2'
 source 'UNKNOWN'
 author 'wolfspyre'
 license 'Apache License, Version 2.0'
