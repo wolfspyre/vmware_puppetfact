@@ -14,6 +14,7 @@ require 'facter'
 # ESXi 5.0u2  914586 ( Address: 0xE72C0 Release Date: 07/09/2012)
 # ESXi 5.1    799733 ( Address: 0xEA0C0 Release Date: 06/22/2012)
 # ESXi 5.1.0 1065491 ( Address: 0xEA0C0 Release Date: 06/22/2012)
+# ESXi 5.1u3 2323236 ( Address: 0xE9AB0 Release Date: 10/22/2013)
 # ESXi 5.5.0 1369380 ( Address: 0xEA050 Release Date: 07/30/2013)
 #
 Facter.add(:vmware) do
@@ -78,6 +79,8 @@ Facter.add(:vmware) do
             mainver = '5.0'
           when address.match(/EA0C0/)
             mainver = '5.1'
+          when address.match(/E9AB0/)
+            mainver = '5.1'
           when address.match(/EA050/)
             mainver = '5.5'
           end
@@ -135,6 +138,15 @@ Facter.add(:vmware_patchlevel) do
             end
             if biosdate.include? '07/09/2012'
               update = 'u2'
+            end
+          # 5.1 u2 and u3
+          when address.match(/EA0C0/)
+            if biosdate.include? '08/16/2013'
+              update = 'u2'
+            end
+          when address.match(/E9AB0/)
+            if biosdate.include? '10/22/2013'
+              update = 'u3'
             end
           end
         end
