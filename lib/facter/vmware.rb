@@ -136,6 +136,14 @@ Facter.add(:vmware_patchlevel) do
             if biosdate.include? '07/09/2012'
               update = 'u2'
             end
+            # Adds 5.5 u1 and u2
+          when address.match(/EA050/)
+            if biosdate.include? '07/30/2013'
+              update = 'u1'
+            end 
+            if biosdate.include? '04/14/2014'
+              update = 'u2'
+            end
           end
         end
       end
