@@ -80,6 +80,8 @@ Facter.add(:vmware) do
             mainver = '5.1'
           when address.match(/EA050/)
             mainver = '5.5'
+          when address.match(/E9A40/)
+            mainver = '6.0'
           end
           result=mainver
         end
